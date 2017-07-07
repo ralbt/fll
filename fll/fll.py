@@ -1,11 +1,15 @@
 import os
-from flask import Flask, request, session, g
-
+from flask import Flask
+from flask_sqlalchemy import SQLAlchemy
 
 app = Flask(__name__)
 app.config.from_object("config.DevelopmentConfig")
 
-# db = SQLAlchemy(app)
+db = SQLAlchemy(app)
+
+from models import Task
+
+
 
 @app.route('/')
 def hello():
